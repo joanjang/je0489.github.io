@@ -2,25 +2,53 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>D3:Adding dynamic color, based on data</title>
+	<title>BOHEM이 짱입니다?</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
 	<script type="text/javascript">
-		$(window).resize(function(){resizeYoutube();});
+		var likingState = false;
+		$(window).resize( function(){ resizeYoutube(); });
 		$(function(){resizeYoutube();});
-		function resizeYoutube(){ $("iframe").each(function(){ if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){ $(this).css("width","100%"); $(this).css("height",Math.ceil( parseInt($(this).css("width")) * 480 / 854 ) + "px");} }); }
+		function resizeYoutube() { 
+			$("iframe").each(function() { 
+				if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){
+				 	$(this).css("width","100%");
+				 	$(this).css("height",Math.ceil(parseInt($(this).css("width")) * 480 / 854 ) + "px");
+				} 
+			}); 
+		}
+		function liking(){
+			if(likingState == false ) {
+ 				alert("좋아요 눌렀다");
+ 				$('.icon').css('color','red');
+ 				likingState = true;
+			}
+ 			else {
+ 				alert("좋아요 취소");
+ 				$('.icon').css('color','black');
+ 				likingState = false;
+ 			}
+		}
 	</script>
 	<style type="text/css">
-		section {
-			padding : 15% 2%;
-		}
+		section {padding : 15% 2%; }
+		table { width : 100%; }
+			table td.icon {
+				width : 5%; 
+				font-size : xx-large;
+			}
 	</style>
 </head>
 <body>
 <section>
 <table>
+	<tr>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/VhbuxbESIKM?autoplay=1" frameborder="0" allowfullscreen></iframe>
+	</tr>
+	<tr>
+		<td class="icon" onclick="liking()"> ♡ </td>
+	</tr>
 </table>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/m8LOay-77Es?autoplay=1"" frameborder="0" ></iframe>
 </section>
 </body>
 </html>

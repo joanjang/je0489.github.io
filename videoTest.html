@@ -12,7 +12,7 @@
 		function resizeYoutube() { 
 			$("iframe").each(function() { 
 				if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){
-				 	$(this).css("width","100%");
+				 	$(this).css("width","70%");
 				 	$(this).css("height",Math.ceil(parseInt($(this).css("width")) * 480 / 854 ) + "px");
 				} 
 			}); 
@@ -20,35 +20,56 @@
 		function liking(){
 			if(likingState == false ) {
  				alert("좋아요 눌렀다");
- 				$('.icon').css('color','red');
+ 				$('#icon').css('color','red');
  				likingState = true;
 			}
  			else {
  				alert("좋아요 취소");
- 				$('.icon').css('color','black');
+ 				$('#icon').css('color','black');
  				likingState = false;
  			}
 		}
+		function insertComment(input) {
+			alert(input.comment.value)
+		}
 	</script>
 	<style type="text/css">
-		section {padding : 15% 2%; }
-		table { width : 100%; }
-			table td.icon {
-				width : 5%; 
-				font-size : xx-large;
+		section { 
+			padding : 15% 2%; 
+			text-align: center; 
+		}
+			section article { 
+				margin: 1% 15%; 
+				border: solid rgba(161, 161, 161,0.2) 1px;
 			}
+		table {
+			margin : 1% 1% 0;
+		}
+		#icon {
+			font-size : xx-large; 
+			text-align : left; 
+		}
+		#button {
+			text-align: right;
+		}
 	</style>
 </head>
 <body>
-<section>
-<table>
-	<tr>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/VhbuxbESIKM?autoplay=1" frameborder="0" allowfullscreen></iframe>
-	</tr>
-	<tr>
-		<td class="icon" onclick="liking()"> ♡ </td>
-	</tr>
-</table>
-</section>
+	<section>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/mt2Xt-H9eXU?autoplay=1" frameborder="0" allowfullscreen></iframe>
+		<article>
+		<form>
+			<table>
+				<tr colspan="2">
+					<td id="icon" onclick="liking()"> ♥ </td>
+				</tr>
+				<tr>
+					<td width="100%"><input type="search" size="30" id="comment" placeholder="댓글 입력하세염" ></td>
+					<td id="button"><input type="button" value="등록" onclick="insertComment(this.form)"></td>
+				</tr>
+			</table>
+		</form>
+		</article>
+	</section>
 </body>
 </html>

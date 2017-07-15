@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>D3:Adding dynamic color, based on data</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
+	<script type="text/javascript">
+		$(window).resize(function(){resizeYoutube();});
+		$(function(){resizeYoutube();});
+		function resizeYoutube(){ $("iframe").each(function(){ if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){ $(this).css("width","100%"); $(this).css("height",Math.ceil( parseInt($(this).css("width")) * 480 / 854 ) + "px");} }); }
+	</script>
+	<style type="text/css">
+		section {
+			padding : 15% 2%;
+		}
+	</style>
+</head>
+<body>
+<section>
+<table>
+</table>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m8LOay-77Es?autoplay=1"" frameborder="0" allowfullscreen></iframe>
+</section>
+</body>
+</html>

@@ -43,14 +43,17 @@
 				border: solid rgba(161, 161, 161,0.2) 1px;
 			}
 		table {
-			margin : 1% 1% 0;
+			margin : 0 1%;
 		}
 		#icon {
-			font-size : xx-large; 
+			font-size : x-large; 
 			text-align : left; 
 		}
 		#button {
 			text-align: right;
+		}
+		input[type="text"]{
+			witdh : 99%;
 		}
 	</style>
 </head>
@@ -60,11 +63,11 @@
 		<article>
 		<form>
 			<table>
-				<tr colspan="2">
-					<td id="icon" onclick="liking()"> ♥ </td>
+				<tr>
+					<td colspan="2" id="icon""><label onclick="liking()">♥</label></td>
 				</tr>
 				<tr>
-					<td width="100%"><input type="search" size="30" id="comment" placeholder="댓글 입력하세염" ></td>
+					<td width="100%"><input type="search" size="30" id="comment" placeholder="댓글 입력하세염" style="width:99%"></td>
 					<td id="button"><input type="button" value="등록" onclick="insertComment(this.form)"></td>
 				</tr>
 			</table>

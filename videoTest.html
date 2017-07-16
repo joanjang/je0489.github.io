@@ -20,7 +20,7 @@
 		function liking(){
 			if(likingState == false ) {
  				alert("좋아요 눌렀다");
- 				$('#icon').css('color','red');
+ 				$('#icon').css('color','orange');
  				likingState = true;
 			}
  			else {
@@ -53,7 +53,7 @@
 			text-align: right;
 		}
 		input[type="text"]{
-			witdh : 99%;
+			width : 99%;
 		}
 	</style>
 </head>
@@ -67,7 +67,7 @@
 					<td colspan="2" id="icon""><label onclick="liking()">♥</label></td>
 				</tr>
 				<tr>
-					<td width="100%"><input type="search" size="30" id="comment" placeholder="댓글 입력하세염" style="width:99%"></td>
+					<td width="100%"><input type="text" id="comment" placeholder="댓글 입력하세염"></td>
 					<td id="button"><input type="button" value="등록" onclick="insertComment(this.form)"></td>
 				</tr>
 			</table>
